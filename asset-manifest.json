@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PreEntrega2Riviere-React/static/css/main.c8eb9939.css",
+    "main.js": "/PreEntrega2Riviere-React/static/js/main.8bbcdddc.js",
+    "index.html": "/PreEntrega2Riviere-React/index.html",
+    "main.c8eb9939.css.map": "/PreEntrega2Riviere-React/static/css/main.c8eb9939.css.map",
+    "main.8bbcdddc.js.map": "/PreEntrega2Riviere-React/static/js/main.8bbcdddc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c8eb9939.css",
+    "static/js/main.8bbcdddc.js"
+  ]
+}

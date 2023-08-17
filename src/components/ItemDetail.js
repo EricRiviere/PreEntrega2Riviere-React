@@ -37,7 +37,7 @@ const ItemDetail = ({
           <div>
             <ItemCount
               initial={1}
-              stock={10}
+              stock={stock}
               onAdd={(quantity) => console.log("Amount added: ", quantity)}
             />
           </div>

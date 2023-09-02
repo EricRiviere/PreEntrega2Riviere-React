@@ -1,4 +1,7 @@
 import ItemCount from "./ItemCount";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../CartContext";
 
 const ItemDetail = ({
   id,
@@ -9,6 +12,18 @@ const ItemDetail = ({
   price,
   stock,
 }) => {
+  const [quantityAdded, setQuantityAdded] = useState(0);
+
+  const { addItem } = useContext(CartContext);
+
+  const handleOnAdd = (quantity) => {
+    setQuantityAdded(quantity);
+
+    const item = { id, name, price, image };
+
+    addItem(item, quantity);
+  };
+
   return (
     <section className="pt-20 lg:pt-[20px] pb-10 lg:pb-20 h-full bg-[#F3F4F6] px-4 sm:px-40 md:px-60 lg:px-96">
       <div className="container grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-12"></div>
@@ -35,11 +50,15 @@ const ItemDetail = ({
             </p>
           </div>
           <div>
-            <ItemCount
-              initial={1}
-              stock={stock}
-              onAdd={(quantity) => console.log("Amount added: ", quantity)}
-            />
+            {quantityAdded > 0 ? (
+              <Link to="/cart">
+                <button className="inline-block rounded-full border border-[#E5E7EB] py-2 px-4 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white">
+                  Go to Cart
+                </button>
+              </Link>
+            ) : (
+              <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
+            )}
           </div>
         </div>
       </div>

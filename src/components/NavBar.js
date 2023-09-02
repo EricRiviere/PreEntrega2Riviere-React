@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div className="bg-gray50 flex justify-around p-3">
+    <header className="bg-gray50 flex justify-around p-3 shadow-md">
       <Link
         to={"/"}
         className="mt-2 mr-2 rounded-md border border-[#E5E7EB] py-2 px-4 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white"
@@ -37,7 +37,7 @@ function NavBar() {
         </NavLink>
       </nav>
       <CartWidget />
-    </div>
+    </header>
   );
 }
 

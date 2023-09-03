@@ -4,7 +4,12 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, clearCart, totalQuantity, total } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const total = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   if (totalQuantity === 0) {
     return (

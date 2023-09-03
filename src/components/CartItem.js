@@ -1,8 +1,23 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../CartContext";
-import { Link } from "react-router-dom";
 
-const CartItem = ({ name, image, price }) => {
+const CartItem = ({ id, name, image, price, quantity }) => {
+  const { addItem, removeItem } = useContext(CartContext);
+
+  const handleQuantityChange = (newQuantity) => {
+    // Asegúrate de que la nueva cantidad sea mayor o igual a 1 antes de llamar a addItem
+    if (newQuantity >= 1) {
+      addItem({ id, name, price, image }, newQuantity - quantity);
+    } else {
+      // Si la nueva cantidad es 0 o negativa, elimina el producto
+      removeItem(id);
+    }
+  };
+
+  const handleRemoveClick = () => {
+    removeItem(id);
+  };
+
   return (
     <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
       <div className="flex w-2/5">
@@ -14,24 +29,40 @@ const CartItem = ({ name, image, price }) => {
           <a
             href="#"
             class="font-semibold hover:text-red-500 text-gray-500 text-xs"
+            onClick={handleRemoveClick}
           >
             Remove
           </a>
         </div>
       </div>
       <div class="flex justify-center w-1/5">
-        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-          <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+        <svg
+          class="fill-current text-gray-600 w-3 cursor-pointer"
+          viewBox="0 0 448 512"
+          onClick={() => handleQuantityChange(quantity - 1)}
+        >
+          <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33-32-32v-32c0-17.67-14.33-32-32-32z" />
         </svg>
 
-        <input class="mx-2 border text-center w-8" type="text" value="1" />
+        <input
+          class="mx-2 border text-center w-8"
+          type="text"
+          value={quantity}
+          readOnly
+        />
 
-        <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
+        <svg
+          class="fill-current text-gray-600 w-3 cursor-pointer"
+          viewBox="0 0 448 512"
+          onClick={() => handleQuantityChange(quantity + 1)}
+        >
           <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
         </svg>
       </div>
       <span class="text-center w-1/5 font-semibold text-sm">{price} $</span>
-      <span class="text-center w-1/5 font-semibold text-sm">{price * 1}$</span>
+      <span class="text-center w-1/5 font-semibold text-sm">
+        {price * quantity} $
+      </span>
     </div>
   );
 };

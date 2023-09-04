@@ -5,11 +5,9 @@ const CartItem = ({ id, name, image, price, quantity }) => {
   const { addItem, removeItem } = useContext(CartContext);
 
   const handleQuantityChange = (newQuantity) => {
-    // Asegúrate de que la nueva cantidad sea mayor o igual a 1 antes de llamar a addItem
     if (newQuantity >= 1) {
       addItem({ id, name, price, image }, newQuantity - quantity);
     } else {
-      // Si la nueva cantidad es 0 o negativa, elimina el producto
       removeItem(id);
     }
   };

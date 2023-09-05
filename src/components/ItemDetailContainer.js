@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-
+import { BarLoader } from "react-spinners";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../db/firebaseConfig";
 
@@ -32,9 +32,14 @@ const ItemDetailContainer = () => {
 
   if (loading) {
     return (
-      <h1 className="text-center pt-4 text-5xl bg-[#F3F4F6]">
-        LOADING PRODUCT
-      </h1>
+      <>
+        <h1 className="text-center py-4 text-5xl bg-[#F3F4F6]">
+          LOADING PRODUCT
+        </h1>
+        <div className="my-5 flex justify-center">
+          <BarLoader color="#111312" height={7} width={100} className="my-5" />
+        </div>
+      </>
     );
   } else {
     return (

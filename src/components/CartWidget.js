@@ -7,7 +7,6 @@ const CartWidget = () => {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   useEffect(() => {
-    // Calcula la cantidad total de productos en el carrito
     const newTotalQuantity = cart.reduce(
       (total, item) => total + item.quantity,
       0

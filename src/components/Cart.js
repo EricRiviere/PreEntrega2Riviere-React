@@ -14,11 +14,11 @@ const Cart = () => {
   if (totalQuantity === 0) {
     return (
       <section>
-        <h1 className="text-center font-bold text-7xl mt-3">
+        <h1 className="text-center font-bold text-7xl my-10">
           No products on Cart
         </h1>
-        <Link to="/">
-          <button className="my-52 mx-96 rounded-full border border-[#E5E7EB] py-4 px-4 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white">
+        <Link to="/" className="flex justify-center">
+          <button className="rounded-full border border-[#E5E7EB] py-4 px-4 my-44 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white">
             Back to Products
           </button>
         </Link>
@@ -89,7 +89,7 @@ const Cart = () => {
           <div className="py-10">
             <label
               for="promo"
-              class="font-semibold inline-block mb-3 text-sm uppercase"
+              className="font-semibold inline-block mb-3 text-sm uppercase"
             >
               Promo Code
             </label>
@@ -97,7 +97,7 @@ const Cart = () => {
               type="text"
               id="promo"
               placeholder="Enter your code"
-              class="p-2 text-sm w-full"
+              className="p-2 text-sm w-full"
             />
           </div>
           <button className="rounded-full border border-[#E5E7EB] px-5 py-2 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white">

@@ -9,6 +9,7 @@ export const CartContext = createContext({
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
 
   const addItem = (item, quantity) => {
     const existingItemIndex = cart.findIndex(
@@ -33,8 +34,18 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
+  const calculateTotal = () => {
+    const newTotal = cart.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    setTotal(newTotal);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem, clearCart }}>
+    <CartContext.Provider
+      value={{ cart, addItem, removeItem, clearCart, calculateTotal, total }}
+    >
       {children}
     </CartContext.Provider>
   );

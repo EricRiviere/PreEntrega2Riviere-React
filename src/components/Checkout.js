@@ -18,6 +18,7 @@ import { Link } from "react-router-dom";
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
   const [orderId, setOrderId] = useState("");
+  const [error, setError] = useState(null);
 
   const { cart, total, clearCart } = useContext(CartContext);
 
@@ -74,9 +75,10 @@ const Checkout = () => {
         setOrderId(orderAdded.id);
         clearCart();
       } else {
-        console.error("Product out of stock");
+        setError("Some products are out of stock.");
       }
     } catch (error) {
+      setError("An error occurred while processing your order.");
       console.error(error);
     } finally {
       setLoading(false);
@@ -115,6 +117,9 @@ const Checkout = () => {
   return (
     <>
       <h1 className="text-center py-14 mb-2 text-5xl bg-[#F3F4F6]">Checkout</h1>
+      {error && (
+        <p className="text-center text-red-500 text-lg mt-4">{error}</p>
+      )}
       <CheckoutForm onConfirm={createOrder} />
     </>
   );

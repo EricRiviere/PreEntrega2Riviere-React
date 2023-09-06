@@ -24,13 +24,12 @@ const CartItem = ({ id, name, image, price, quantity }) => {
         </div>
         <div className="flex flex-col justify-between ml-4 flex-grow">
           <span className="font-bold text-sm">{name}</span>
-          <a
-            href="#"
-            className="font-semibold hover:text-red-500 text-gray-500 text-xs"
+          <button
+            className="rounded-full w-1/2 text-sm border border-[#E5E7EB] py-1 px-1 font-semibold text-body-color transition hover:border-white hover:bg-black hover:text-white"
             onClick={handleRemoveClick}
           >
             Remove
-          </a>
+          </button>
         </div>
       </div>
       <div className="flex justify-center w-1/5">

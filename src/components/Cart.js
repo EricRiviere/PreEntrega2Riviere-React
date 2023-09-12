@@ -14,7 +14,7 @@ const Cart = () => {
   if (totalQuantity === 0) {
     return (
       <section>
-        <h1 className="text-center font-bold text-7xl my-10 mt-10 md:mt-20">
+        <h1 className="text-center font-bold text-7xl my-10 mt-16 md:mt-20">
           No products on Cart
         </h1>
         <Link to="/" className="flex justify-center">

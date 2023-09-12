@@ -25,9 +25,8 @@ const ItemDetail = ({
   };
 
   return (
-    <section className="pt-20 lg:pt-[20px] pb-10 lg:pb-20 h-full bg-[#F3F4F6] px-4 sm:px-40 md:px-60 lg:px-96">
-      <div className="container grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-12"></div>
-      <div className="overflow-hidden bg-white rounded-lg ">
+    <section className="pt-20 lg:pt-[20px] pb-10 lg:pb-20 mt-5 lg:mt-20 h-full bg-[#F3F4F6] p-4 flex justify-center items-center">
+      <div className="overflow-hidden bg-white rounded-lg max-w-7xl">
         <img src={image} alt="" className="w-full" />
         <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9">
           <h3 className="mb-4 block text-xl font-semibold text-dark hover:text-primary sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]">
@@ -51,7 +50,7 @@ const ItemDetail = ({
           </div>
           <div>
             {quantityAdded > 0 ? (
-              <>
+              <div className="mt-5">
                 <Link to="/">
                   <svg
                     className="inline mr-2 text-black w-4"
@@ -62,11 +61,11 @@ const ItemDetail = ({
                   Continue Shopping
                 </Link>
                 <Link to="/cart">
-                  <button className="inline-block ml-3 rounded-full border border-[#E5E7EB] py-2 px-4 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white">
+                  <button className="inline-block ml-4 mt-4 rounded-full border border-[#E5E7EB] py-2 px-4 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white">
                     Go to Cart
                   </button>
                 </Link>
-              </>
+              </div>
             ) : (
               <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
             )}

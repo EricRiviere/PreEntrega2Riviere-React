@@ -37,7 +37,7 @@ const ItemListContainer = () => {
   if (loading) {
     return (
       <>
-        <h1 className="text-center py-4 text-5xl bg-[#F3F4F6]">
+        <h1 className="text-center py-4 text-5xl bg-[#F3F4F6] mt-16 lg:mt-20">
           LOADING PRODUCTS
         </h1>
         <div className="my-5 flex justify-center">

@@ -88,7 +88,7 @@ const Checkout = () => {
   if (loading) {
     return (
       <>
-        <h1 className="text-center py-4 text-5xl bg-[#F3F4F6]">
+        <h1 className="text-center py-4 text-5xl bg-[#F3F4F6] mt-16 lg:mt-20">
           PROCESSING ORDER
         </h1>
         <div className="my-5 flex justify-center">
@@ -101,12 +101,12 @@ const Checkout = () => {
   if (orderId) {
     return (
       <>
-        <h1 className="text-center py-14 text-5xl bg-[#F3F4F6]">
+        <h1 className="text-center py-14 text-base lg:text-5xl bg-[#F3F4F6] mt-16 lg:mt-20">
           Your Order Id is: {orderId}
         </h1>
         <p className="text-center py-28 text-2xl">Thanks for trusting us!</p>
         <Link to="/" className="flex justify-center">
-          <button className="rounded-full border border-[#E5E7EB] py-5 px-5 my-10 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white uppercase">
+          <button className="rounded-full border border-[#E5E7EB] py-5 px-5 my-20 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white uppercase">
             BUY AGAIN
           </button>
         </Link>
@@ -116,7 +116,9 @@ const Checkout = () => {
 
   return (
     <>
-      <h1 className="text-center py-14 mb-2 text-5xl bg-[#F3F4F6]">Checkout</h1>
+      <h1 className="text-center py-14 mb-2 text-5xl bg-[#F3F4F6] mt-10">
+        Customer information
+      </h1>
       {error && (
         <p className="text-center text-red-500 text-lg mt-4">{error}</p>
       )}

@@ -17,7 +17,7 @@ const CartWidget = () => {
   return (
     <Link to="/cart">
       <button
-        className="flex mt-2 rounded-md border border-[#E5E7EB] py-2 px-2 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white"
+        className=" flex bg-black text-white py-2 px-3 rounded md:ml-8 hover:bg-gray-400 duration-500"
         style={{ display: totalQuantity > 0 ? "" : "none" }}
       >
         <svg

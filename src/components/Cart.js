@@ -27,7 +27,7 @@ const Cart = () => {
   }
 
   return (
-    <section className="container mx-auto mt-10 lg:mb-36 lg:mt-10">
+    <section className="container mx-auto mt-10 lg:mt-10">
       <div className="flex flex-wrap shadow-md my-5">
         <div className="w-full bg-white lg:w-3/4 px-10 py-10">
           <div className="flex justify-between border-b pb-8">

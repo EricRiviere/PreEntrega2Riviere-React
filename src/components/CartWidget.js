@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../CartContext";
 import { Link } from "react-router-dom";
 
-const CartWidget = () => {
+const CartWidget = ({ setOpen }) => {
   const { cart } = useContext(CartContext);
   const [totalQuantity, setTotalQuantity] = useState(0);
 
@@ -15,7 +15,7 @@ const CartWidget = () => {
   }, [cart]);
 
   return (
-    <Link to="/cart">
+    <Link onClick={setOpen} to="/cart">
       <button
         className=" flex bg-black text-white py-2 px-3 rounded md:ml-8 hover:bg-gray-400 duration-500"
         style={{ display: totalQuantity > 0 ? "" : "none" }}

@@ -48,8 +48,8 @@ const Cart = () => {
               Total
             </h3>
           </div>
-          {cart.map((p) => (
-            <CartItem key={p.id} {...p} />
+          {cart.map((product) => (
+            <CartItem key={product.id} {...product} />
           ))}
           <Link
             to="/"
@@ -62,7 +62,7 @@ const Cart = () => {
           </Link>
           <button
             className="inline-flex rounded-full border border-[#E5E7EB] mt-3 py-2 px-4 text-base font-medium text-body-color transition hover:border-white hover:bg-black hover:text-white"
-            onClick={() => clearCart()}
+            onClick={clearCart}
           >
             Clear all products
           </button>

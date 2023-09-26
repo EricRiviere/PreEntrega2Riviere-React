@@ -69,10 +69,12 @@ firebaseConfig: Contains Firebase configuration settings.
 
 db: Provides access to the Firebase Firestore database.
 
-Usage
+Usage:
+
 E-commerce MAAP serves as a template that can be customized and extended for specific business needs. You can add more products, categories, or features to make it suitable for your use case.
 
 Feel free to explore and modify the code to adapt it to your requirements.
 
-Acknowledgments
+Acknowledgments:
+
 Special thanks to my CoderHouse professor Horacio Alfredo Gutierrez Estevez and my tutor Javier Gimenez for their knowledge and patience.

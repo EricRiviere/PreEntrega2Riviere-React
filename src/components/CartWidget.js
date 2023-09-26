@@ -1,24 +1,17 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../CartContext";
 import { Link } from "react-router-dom";
 
 const CartWidget = ({ setOpen }) => {
   const { cart } = useContext(CartContext);
-  const [totalQuantity, setTotalQuantity] = useState(0);
-
-  useEffect(() => {
-    const newTotalQuantity = cart.reduce(
-      (total, item) => total + item.quantity,
-      0
-    );
-    setTotalQuantity(newTotalQuantity);
-  }, [cart]);
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <Link onClick={setOpen} to="/cart">
       <button
-        className=" flex bg-black text-white py-2 px-3 rounded md:ml-8 hover:bg-gray-400 duration-500"
-        style={{ display: totalQuantity > 0 ? "" : "none" }}
+        className={`flex bg-black text-white py-2 px-3 rounded md:ml-8 hover:bg-gray-400 duration-500 ${
+          totalQuantity > 0 ? "" : "hidden"
+        }`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
